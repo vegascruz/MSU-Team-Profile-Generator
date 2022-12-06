@@ -1,15 +1,19 @@
+//node modules
 var inquirer = require('inquirer');
-const Employee = require('./library/Employee');
-
+const fs = require('fs'); 
+//this file runs the code to create an HTML file
+const generateHTML = require('./src/generateHTML');
 //imported classes or 'team profile's ' : NOTE - the employee class isn't being transported,
 //because all the other classes inherit its traits
 const Manager = require('./library/Manager');
+const Engineer = require('./library/Engineer');
+const Intern = require('./library/Intern');
+
 
 let teamArray = [];
 
 function addManager(){
-    inquirer
-    .prompt([
+    return inquirer.prompt([
       /* Pass your questions in here */
       {
           type: 'input',
@@ -73,12 +77,12 @@ function addManager(){
   
       //here, we are appending the new object to the teamArray
       teamArray.push(manager);
-      console.log(manager);
+      //console.log(manager);
     })
-}
+};
 
 function addEmployee(){
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             type: 'list',
             name: 'role',
@@ -162,6 +166,50 @@ function addEmployee(){
         }
     ])
     .then((employeeInput) => {
+        let {employeeName, ID, email, role, githubUserName, school, confirmation} = employeeInput;
+        let employee;
 
+        if(role === 'Engineer'){
+            employee = new Engineer (employeeName, ID, email, githubUserName);
+            //console.log(employee);
+        }else if(role === 'Intern'){
+            employee = new Intern (employeeName, ID, email, school)
+            //console.log(employee)
+        }
+
+        teamArray.push(employee);
+
+        if(confirmation){
+            return addEmployee(teamArray);
+        }else{
+            return teamArray;
+        }
+    })
+};
+
+//function to generate HTML page
+function writeFile(data){
+    fs.writeFile('./index.html', data, err => {
+        //if there is an error, it will log a message
+        if(err){
+            console.log(err);
+            return;
+        //else, confirmation message
+        }else{
+            console.log("Your team profile page has been made... see folder");
+        }
     })
 }
+
+addManager()
+  .then(addEmployee)
+  .then(teamArray => {
+    console.log(teamArray);
+    //return generateHTML(teamArray);
+  })
+  /*.then(pageHTML => {
+    return writeFile(pageHTML);
+  })*/
+  .catch(err => {
+    console.log(err);
+  });

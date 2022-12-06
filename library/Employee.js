@@ -2,10 +2,10 @@
 class Employee{
     //a constructor function is called when we create a new object
     //this defines what is needed in order to create an Employee object
-    constructor(id, name, email){
+    constructor(name, id, email){
         //we are setting the value of the the employee object the parameters passed
-        this.id = id;
         this.name = name;
+        this.id = id;
         this.email = email;
     }
     getName() {
