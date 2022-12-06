@@ -2,7 +2,7 @@
 var inquirer = require('inquirer');
 const fs = require('fs'); 
 //this file runs the code to create an HTML file
-const generateHTML = require('./src/generateHTML');
+const generatePage = require('./source/generatePage');
 //imported classes or 'team profile's ' : NOTE - the employee class isn't being transported,
 //because all the other classes inherit its traits
 const Manager = require('./library/Manager');
@@ -204,12 +204,12 @@ function writeFile(data){
 addManager()
   .then(addEmployee)
   .then(teamArray => {
-    console.log(teamArray);
-    //return generateHTML(teamArray);
+    //console.log(teamArray);
+    return generatePage(teamArray);
   })
-  /*.then(pageHTML => {
+  .then(pageHTML => {
     return writeFile(pageHTML);
-  })*/
+  })
   .catch(err => {
     console.log(err);
   });
