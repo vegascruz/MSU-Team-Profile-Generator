@@ -60,3 +60,8 @@
   ## Questions? Feel free to email or message me.
   ### GitHub: https://github.com/vegascruz
   ### Email: vegascruz5@gmail.com
+  
+  ## Images 
+  ![team-profile-page](https://user-images.githubusercontent.com/95984881/206090613-96ec81f3-18e8-46d3-8b01-682d8c4c1565.png)
+  ![consoleJestTests](https://user-images.githubusercontent.com/95984881/206090617-47eac086-6397-4a89-b79c-28c841b726c7.png)
+  ![team-profile-generator-inConsole](https://user-images.githubusercontent.com/95984881/206090618-b2c8dd53-77ef-48a4-8f2b-53307616f879.png)
