@@ -1,7 +1,7 @@
 const generateManager = function(manager){
     return ` 
     
-    <div class="card" style="width: 18rem;">
+    <div class="card">
       <div class="card-body">
         <h5 class="card-title">${manager.name}</h5>
         <p class="card-text"><i class="fa-solid fa-mug-hot"></i> Manager</p>
@@ -9,7 +9,7 @@ const generateManager = function(manager){
       <div>
           <ul id="card-list"class="list-group list-group-flush">
               <li class="list-group-item">ID: ${manager.id}</li>
-              <li class="list-group-item">Email ${manager.email}:</li>
+              <li class="list-group-item">Email: ${manager.email}</li>
               <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
           </ul>
       </div>
@@ -20,7 +20,7 @@ const generateManager = function(manager){
 
 const generateEngineer = function(engineer){
   return `
-  <div class="card" style="width: 18rem;">
+  <div class="card">
       <div class="card-body">
         <h5 class="card-title">${engineer.name}</h5>
         <p class="card-text"><i class="fa-solid fa-glasses"></i> Engineer</p>
@@ -38,7 +38,7 @@ const generateEngineer = function(engineer){
 
 const generateIntern = function (intern) {
   return `
-    <div class="card" style="width: 18rem;">
+    <div class="card">
       <div class="card-body">
         <h5 class="card-title">${intern.name}</h5>
         <p class="card-text"><i class="fa-solid fa-user-graduate"></i> Intern</p>
