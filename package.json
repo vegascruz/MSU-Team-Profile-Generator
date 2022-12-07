@@ -1,5 +1,20 @@
 {
+  "name": "msu-team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "library",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
   "dependencies": {
     "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }

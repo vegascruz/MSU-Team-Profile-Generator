@@ -71,7 +71,8 @@ function addManager(){
     ])
     .then((managerInput) => {
       // Use user feedback for... whatever!!
-      const { managerName, ID, email, officeNumber} = managerInput;
+      let { managerName, ID, email, officeNumber} = managerInput;
+      managerName = managerName.charAt(0).toUpperCase() + managerName.slice(1);
       //this is creating a Manager object using the variables above as params
       const manager = new Manager(managerName, ID, email, officeNumber);
   
@@ -166,7 +167,9 @@ function addEmployee(){
         }
     ])
     .then((employeeInput) => {
+
         let {employeeName, ID, email, role, githubUserName, school, confirmation} = employeeInput;
+        employeeName = employeeName.charAt(0).toUpperCase() + employeeName.slice(1);
         let employee;
 
         if(role === 'Engineer'){
@@ -197,6 +200,7 @@ function writeFile(data){
         //else, confirmation message
         }else{
             console.log("Your team profile page has been made... see folder");
+            process.exit()
         }
     })
 }
